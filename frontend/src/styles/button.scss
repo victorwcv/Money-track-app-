@@ -1,0 +1,5 @@
+.button {
+  @apply outline-none border-0 flex items-center gap-2 cursor-pointer transition-all;
+  font-family: inherit;
+  font-size: inherit;
+}

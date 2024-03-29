@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
 
@@ -15,6 +15,7 @@
   --text-dark: #313131;
   --text-light: #faf9fd;
   --bg-color: #ffffff;
+  --color-green: rgb(98, 178, 23);
 }
 
 body {
