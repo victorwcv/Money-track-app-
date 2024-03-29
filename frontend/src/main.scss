@@ -22,8 +22,17 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   overflow: hidden;
-  color: rgba(34, 34, 96, .6);
+  color: rgba(34, 34, 96, 0.6);
   background-color: var(--text-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-color);
 }
 
 .App {
@@ -32,10 +41,10 @@ body {
   section {
     @apply rounded-3xl;
     flex: 1;
-    background-color: rgba(252, 246, 249, .78);
+    position: relative;
+    background-color: rgba(252, 246, 249, 0.78);
     border: 3px solid #fff;
     backdrop-filter: blur(4.5px);
-
   }
 }
 
@@ -44,5 +53,5 @@ body {
 }
 
 .inner-layout {
-  @apply px-8 py-6 w-full
+  @apply px-8 py-6 w-full;
 }

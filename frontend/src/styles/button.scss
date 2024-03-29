@@ -1,5 +1,11 @@
 .button {
-  @apply outline-none border-0 flex items-center gap-2 cursor-pointer transition-all;
+  @apply outline-none border-0 flex justify-center items-center gap-2 cursor-pointer transition-all;
   font-family: inherit;
   font-size: inherit;
-}
+  
+ 
+} 
+.button:active {
+    transform: scale(.95) ;
+    background-color: var(--color-green) !important;
+  }

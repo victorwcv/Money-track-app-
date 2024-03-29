@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/form.scss";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,7 +8,6 @@ import icons from "../utils/icons";
 
 function Form() {
   const { addIncome } = useGlobalContext();
-
   const [inputState, setInputState] = useState({
     title: "",
     amount: "",
@@ -22,6 +21,7 @@ function Form() {
   const handleInput = (name) => (e) => {
     setInputState({ ...inputState, [name]: e.target.value });
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,7 +82,7 @@ function Form() {
           name="description"
           // id=""
           cols="30"
-          rows="4"
+          rows="3"
           value={description}
           placeholder="Add a description"
           onChange={handleInput("description")}

@@ -1,0 +1,45 @@
+.icon-item {
+  @apply p-4 rounded-3xl mb-4 flex items-center gap-4 w-full;
+  border: 2px solid #fff;
+  box-shadow: 0px 1px 15px rgba(0,0,0,0.06);
+  background: #fcf6f9;
+  color: #222260;
+
+  .icon {
+    @apply size-20 rounded-3xl flex items-center justify-center;
+    background: #f5f5f5;
+    border: 2px solid #fff;
+    font-size: 2.6rem
+  }
+
+  .content {
+    @apply flex flex-col gap-1;
+    flex: 1;
+
+    .title {
+      @apply text-lg pl-8 relative;
+
+      &::before {
+        @apply absolute size-3 rounded-full;
+        content: ''; 
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--indicator-color, yellow);
+      }
+    }
+
+    .inner-content {
+      @apply flex justify-between items-center;
+
+      .text {
+        @apply flex items-center gap-6;
+
+        p{
+          @apply flex items-center gap-2 opacity-80;
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+}

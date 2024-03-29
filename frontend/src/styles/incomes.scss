@@ -1,0 +1,25 @@
+.incomes {
+  @apply flex flex-col h-full;
+
+  .total-income {
+    @apply flex justify-center items-center rounded-3xl p-4 my-4 text-3xl gap-2;
+    background: #fcf6f9;
+    border: 2px solid #fff;
+
+    span {
+      font-weight: bold;
+      color: var(--color-green);
+    }
+  }
+
+  .income-content {
+    @apply flex gap-8 overflow-hidden;
+    flex: 1;
+
+    .incomes-container {
+      @apply overflow-auto;
+      flex: 1;
+      
+    }
+  }
+}
