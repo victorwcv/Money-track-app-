@@ -1,0 +1,47 @@
+.navigation {
+  @apply flex flex-col justify-between gap-8 px-8 py-6 w-96 h-full rounded-3xl ;
+  background: rgba(252, 246, 249, .78);
+  border: 3px solid #fff;
+  backdrop-filter: blur(4.5px);
+
+  .user-container {
+    @apply  flex items-center gap-4;
+
+    img {
+      @apply size-20 rounded-full shadow-md bg-slate-400;
+      border: 2px solid #fff;
+    }
+
+    h2 {
+      @apply text-slate-900 font-bold;
+    }
+  }
+
+  
+  .menu-items {
+    @apply flex flex-col gap-2; 
+    flex: 1;
+    
+    li {
+      @apply grid items-center mx-2  cursor-pointer pl-4 relative;
+      grid-template-columns: 40px auto;
+      transition: all .1s ease;
+    }
+  }
+  
+  .active {
+    @apply font-medium text-slate-800;
+  
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: rgb(30, 41, 59);
+      border-radius: 0 10px 10px 0;
+    }
+  }
+  
+}

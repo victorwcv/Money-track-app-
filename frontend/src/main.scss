@@ -2,8 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body {
-  @apply bg-red-600
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
 }
 
+:root {
+  --primary-color: #222260;
+  --secondary-color: #4d57a8;
+  --text-dark: #313131;
+  --text-light: #faf9fd;
+  --bg-color: #ffffff;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  overflow: hidden;
+  color: rgba(34, 34, 96, .6);
+  background-color: var(--text-dark);
+}
+
+.App {
+  @apply h-screen relative;
+
+  section {
+    @apply rounded-3xl;
+    flex: 1;
+    background-color: rgba(252, 246, 249, .78);
+    border: 3px solid #fff;
+    backdrop-filter: blur(4.5px);
+
+  }
+}
+
+.main-layout {
+  @apply p-8 h-screen flex gap-8;
+}
+
+.inner-layout {
+  @apply px-8 py-6 w-full
+}
