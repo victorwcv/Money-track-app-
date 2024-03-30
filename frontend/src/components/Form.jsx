@@ -7,7 +7,7 @@ import Button from "./Button";
 import icons from "../utils/icons";
 
 function Form() {
-  const { addIncome } = useGlobalContext();
+  const { addIncome, error, setError } = useGlobalContext();
   const [inputState, setInputState] = useState({
     title: "",
     amount: "",
@@ -20,8 +20,8 @@ function Form() {
 
   const handleInput = (name) => (e) => {
     setInputState({ ...inputState, [name]: e.target.value });
+    setError(null);
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,6 +30,7 @@ function Form() {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      
       <div className="input-control">
         <input
           type="text"
@@ -87,6 +88,7 @@ function Form() {
           placeholder="Add a description"
           onChange={handleInput("description")}
         ></textarea>
+        {error && <p className="error">{error}</p>}
       </div>
       <div className="submit-btn">
         <Button

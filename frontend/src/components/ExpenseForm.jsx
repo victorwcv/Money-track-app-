@@ -7,7 +7,7 @@ import Button from "./Button";
 import icons from "../utils/icons";
 
 function ExpenseForm() {
-  const { addExpense} = useGlobalContext();
+  const { addExpense, error, setError} = useGlobalContext();
   const [inputState, setInputState] = useState({
     title: "",
     amount: "",
@@ -20,6 +20,7 @@ function ExpenseForm() {
 
   const handleInput = (name) => (e) => {
     setInputState({ ...inputState, [name]: e.target.value });
+    setError(null)
   };
 
 
@@ -87,7 +88,9 @@ function ExpenseForm() {
           placeholder="Add a description"
           onChange={handleInput("description")}
         ></textarea>
+        {error && <p className="error">{error}</p>}
       </div>
+      
       <div className="submit-btn">
         <Button
           name={"Add Expense"}

@@ -1,0 +1,11 @@
+.history-component{
+  @apply flex flex-col gap-4;
+
+  .history-item {
+    @apply flex justify-between items-center rounded-xl p-4;
+
+    background: #fcf6f9;
+    border: 2px solid #fff;
+
+  }
+}

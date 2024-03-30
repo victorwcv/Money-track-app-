@@ -10,14 +10,13 @@ export const GlobalProvider = ({ children }) => {
   const [expenses, setExpenses] = useState([]);
   const [error, setError] = useState(null);
 
-
   const addIncome = async (income) => {
     const response = await axios
       .post(`${BASE_URL}add-income`, income)
       .catch((err) => {
         setError(err.response.data.message);
       });
-      getIncomes();
+    getIncomes();
   };
 
   const getIncomes = async () => {
@@ -26,18 +25,18 @@ export const GlobalProvider = ({ children }) => {
   };
 
   const deleteIncome = async (id) => {
-    const response = await axios.delete(`${BASE_URL}delete-income/${id}`)
-      getIncomes()
-  }
+    const response = await axios.delete(`${BASE_URL}delete-income/${id}`);
+    getIncomes();
+  };
 
   const totalIncome = () => {
     let totalIncome = 0;
-    incomes.forEach(income => {
+    incomes.forEach((income) => {
       totalIncome += income.amount;
-    })
+    });
 
     return totalIncome;
-  }
+  };
 
   // Calculate expenses
   const addExpense = async (income) => {
@@ -46,7 +45,7 @@ export const GlobalProvider = ({ children }) => {
       .catch((err) => {
         setError(err.response.data.message);
       });
-      getExpenses();
+    getExpenses();
   };
 
   const getExpenses = async () => {
@@ -55,19 +54,30 @@ export const GlobalProvider = ({ children }) => {
   };
 
   const deleteExpense = async (id) => {
-    const response = await axios.delete(`${BASE_URL}delete-expense/${id}`)
-      getExpenses()
-  }
+    const response = await axios.delete(`${BASE_URL}delete-expense/${id}`);
+    getExpenses();
+  };
 
   const totalExpense = () => {
     let totalExpense = 0;
-    expenses.forEach(expense => {
+    expenses.forEach((expense) => {
       totalExpense += expense.amount;
-    })
+    });
 
     return totalExpense;
-  }
+  };
 
+  const balance = () => {
+    return totalIncome() - totalExpense();
+  };
+
+  const transactionHistory = () => {
+    const history = [...incomes, ...expenses];
+    history.sort((a, b) => {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+    return history.slice(0, 4)
+  };
 
   return (
     <GlobalContext.Provider
@@ -81,7 +91,12 @@ export const GlobalProvider = ({ children }) => {
         addExpense,
         getExpenses,
         deleteExpense,
-        totalExpense
+        totalExpense,
+        balance,
+        transactionHistory,
+        error,
+        setError
+
       }}
     >
       {children}

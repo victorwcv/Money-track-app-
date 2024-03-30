@@ -1,0 +1,69 @@
+.dashboard {
+  .stats-con {
+    @apply grid gap-8;
+    grid-template-columns: repeat(5, 1fr);
+
+    .chart-con {
+      grid-column: 1/4;
+      height: 400px;
+
+      .amount-con {
+        @apply grid gap-8 mt-8;
+        grid-template-columns: repeat(4, 1fr);
+
+        .income,
+        .expense {
+          grid-column: span 2;
+        }
+        .income,
+        .expense,
+        .balance {
+          @apply shadow-md p-4 rounded-2xl;
+          background: #fcf6f9;
+          border: 2px solid #fff;
+          text-align: center;
+
+          p {
+            @apply text-3xl font-bold;
+          }
+        }
+
+        .balance {
+          
+          grid-column: 2/4;
+
+          p {
+            @apply text-4xl;
+            color: var(--color-green);
+          }
+        }
+      }
+    }
+
+    .history-con {
+      grid-column: 4/ -1;
+
+      h2 {
+        @apply my-4 flex items-center justify-between;
+      }
+      .salary-title {
+        font-size: 1.2rem;
+
+        span {
+          font-size: 1.8rem;
+        }
+      }
+
+      .salary-item {
+        @apply flex justify-between items-center shadow-md p-4 rounded-2xl;
+        background: #fcf6f9;
+        border: 2px solid #fff;
+
+        p{
+          font-weight: 600;
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}

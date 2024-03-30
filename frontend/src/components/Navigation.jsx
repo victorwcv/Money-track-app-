@@ -2,9 +2,21 @@ import "../styles/navigation.scss";
 import avatar from "../assets/avatar.png";
 import menuItems from "../utils/menuItems.jsx";
 import icons from "../utils/icons.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useGlobalContext } from "../context/globalContext";
+
 
 const Navigation = ({ active, setActive }) => {
+
+  const { getIncomes, getExpenses } = useGlobalContext();
+
+  useEffect(()=> {
+    // Get data when component mounts
+    getIncomes();
+    getExpenses();
+  },[])
+
+
   return (
     <div className="navigation">
       <div className="user-container">
