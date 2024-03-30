@@ -15,7 +15,7 @@ const ExpenseSchema =  new mongoose.Schema({
   },
   type : {
     type: String, 
-    default: "income"
+    default: "expense"
   },
   date: {
     type: Date,
@@ -31,7 +31,7 @@ const ExpenseSchema =  new mongoose.Schema({
   description: {
     type: String,
     required: true,
-    maxLength: 50,
+    maxLength: 150,
     trim: true,
   }
 }, {timestamps: true})

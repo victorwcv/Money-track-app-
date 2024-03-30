@@ -28,6 +28,7 @@ const icons = {
   medical: <i className="fa-solid fa-briefcase-medical"></i>,
   tv: <i className="fa-solid fa-tv"></i>,
   circle: <i className="fa-solid fa-circle-dot"></i>,
+  plane: <i className="fa-solid fa-plane-departure"></i>
 };
 
 export default icons;

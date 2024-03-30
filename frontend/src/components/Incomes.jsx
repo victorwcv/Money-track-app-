@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useGlobalContext } from "../context/globalContext";
 import "../styles/incomes.scss";
 import Form from "./Form";
@@ -6,20 +6,17 @@ import IncomeItem from "./IncomeItem";
 
 const Incomes = () => {
   const { incomes, getIncomes, deleteIncome, totalIncome } = useGlobalContext();
-  
 
   useEffect(() => {
     getIncomes();
-  }, [])
-  
-
-
-  
+  }, []);
 
   return (
     <div className="incomes inner-layout">
       <h1>Incomes</h1>
-      <h2 className="total-income">Total Income: <span>${totalIncome()}</span></h2>
+      <h2 className="total-income">
+        Total Income: <span>${totalIncome()}</span>
+      </h2>
       <div className="income-content">
         <div className="form-container">
           <Form />
